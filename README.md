@@ -12,7 +12,7 @@
 ## Syllabus Coverage Mapping
 
 - Unit 1 & 2 (Datatypes, Strings, Operators, Control Statements)
-  - Sequence parsing and validation logic.
+  - Sequence parsing and validation logic,checker.
   - GC-content and nucleotide count calculations.
   - Input checks with `if-else`, loops, and string operations.
 

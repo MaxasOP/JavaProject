@@ -9,7 +9,7 @@
 - Provides a Swing GUI for input, file loading, analysis, and history viewing.
 - Uses Java Collections (`ArrayList`) to store analysis history.
 
-## Syllabus Coverage Map
+## Syllabus Coverage Mapping
 
 - Unit 1 & 2 (Datatypes, Strings, Operators, Control Statements)
   - Sequence parsing and validation logic.

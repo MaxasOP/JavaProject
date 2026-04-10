@@ -1,77 +1,77 @@
-# DNA Sequence Analyzer (Mini Project)
+# DNA Sequence Analyzer
 
+A Java Swing application for validating and analyzing DNA/RNA sequences. Supports GC-content calculation, nucleotide counts, complement strands, transcription, file loading, and analysis history.
 
-## Project Highlights
+## Table of Contents
+- [Features](#features)
+- [Syllabus Coverage](#syllabus-coverage)
+- [Project Structure](#project-structure)
+- [Quick Start](#quick-start)
+- [Demo Checklist](#demo-checklist)
+- [License](#license)
 
-- Validates and analyzes DNA/RNA sequences.
-- Uses OOP design with abstraction, inheritance, interfaces, and method overloading.
-- Uses custom exception handling for invalid nucleotides.
-- Provides a Swing GUI for input, file loading, analysis, and history viewing.
-- Uses Java Collections (`ArrayList`) to store analysis history.
+## Features
+| Feature | Description |
+|---------|-------------|
+| Sequence Validation | Checks for valid nucleotides (A/C/G/T/U); throws `InvalidNucleotideException` |
+| Analysis | Nucleotide counts, GC-content %, complement strand (DNA), transcription (DNA→RNA)/reverse (RNA→DNA) |
+| GUI | Swing interface with input, file load, analysis buttons, history view, visualizer |
+| History | Stores `AnalysisResult`s in `ArrayList` |
+| File I/O | Load sequences from text files |
 
-## Syllabus Coverage Mapping
+## Syllabus Coverage
+- **Unit 1 & 2 (Datatypes, Strings, Operators, Control Statements)**: Sequence parsing/validation, GC-content/nucleotide calculations, input checks with if-else/loops/string ops.
+- **Unit 3 (Classes, Objects, Constructors, Method Overloading)**: Classes like `AnalysisResult`, `SequenceAnalyzerService`; constructors; overloaded methods.
+- **Unit 4 (Inheritance, Abstraction, Interfaces, Overriding)**: Abstract `GeneticSequence`; subclasses `DNASequence`/`RNASequence`; interface `Analyzable`; overrides for `analyze()`/`validate()`/`transcribeOrTransform()`.
+- **Unit 5 (Exception Handling)**: Custom `InvalidNucleotideException`; try-catch-throw in service/UI.
+- **Unit 6 (GUI)**: Swing `JFrame`/`JPanel`, input/output areas, button events.
+- **Unit 7 (Collections)**: `ArrayList<AnalysisResult>` for history; enhanced for-loops.
 
-- Unit 1 & 2 (Datatypes, Strings, Operators, Control Statements)
-  - Sequence parsing and validation logic,checker.
-  - GC-content and nucleotide count calculations.
-  - Input checks with `if-else`, loops, and string operations.
-
-- Unit 3 (Classes, Objects, Constructors, Method Overloading)
-  - Classes: `AnalysisResult`, `SequenceAnalyzerService`, etc.
-  - Constructors in model and result classes.
-  - Overloaded methods in service and validator.
-
-- Unit 4 (Inheritance, Abstraction, Interfaces, Overriding)
-  - Abstract class: `GeneticSequence`.
-  - Subclasses: `DNASequence`, `RNASequence`.
-  - Interface: `Analyzable`.
-  - Overridden methods: `analyze()`, `validate()`, `transcribeOrTransform()`.
-
-- Unit 5 (Exception Handling)
-  - Custom exception: `InvalidNucleotideException`.
-  - `try-catch-throw` flow in service and UI.
-
-- Unit 6 (GUI)
-  - Swing UI with `JFrame`, `JPanel`, input/output areas, and button event handling.
-
-- Unit 7 (Collection Framework)
-  - `ArrayList<AnalysisResult>` for history.
-  - Iteration with enhanced `for` loop.
-
-## Folder Structure
-
+## Project Structure
 ```
-src/
-  dnaanalyzer/
-    Main.java
-    exception/
-      InvalidNucleotideException.java
-    model/
-      Analyzable.java
-      GeneticSequence.java
-      DNASequence.java
-      RNASequence.java
-      AnalysisResult.java
-    service/
-      SequenceValidator.java
-      SequenceAnalyzerService.java
-    repository/
-      AnalysisHistory.java
-    ui/
-      MainFrame.java
+JavaProject/
+├── README.md
+├── src/
+│   └── dnaanalyzer/
+│       ├── Main.java
+│       ├── exception/
+│       │   └── InvalidNucleotideException.java
+│       ├── model/
+│       │   ├── Analyzable.java
+│       │   ├── GeneticSequence.java
+│       │   ├── DNASequence.java
+│       │   ├── RNASequence.java
+│       │   └── AnalysisResult.java
+│       ├── repository/
+│       │   └── AnalysisHistory.java
+│       ├── service/
+│       │   ├── SequenceValidator.java
+│       │   └── SequenceAnalyzerService.java
+│       └── ui/
+│           ├── MainFrame.java
+│           └── StrandVisualizer.java
+├── out/ (compiled classes)
+└── example.txt
+```
 
-## Compile and Run (Windows PowerShell)
+## Quick Start
+From project root (`c:/Users/hp/Desktop/JavaProject`):
 
-```powershell
-New-Item -ItemType Directory -Force out | Out-Null
-javac -d out (Get-ChildItem -Recurse -Filter *.java src | ForEach-Object { $_.FullName })
+### Manual Compile & Run (cmd/PowerShell)
+```bash
+javac -d out src/dnaanalyzer/*.java src/dnaanalyzer/*/*.java src/dnaanalyzer/*/*/*.java
 java -cp out dnaanalyzer.Main
 ```
 
-## Demo Checklist 
+### One-liner PowerShell (Windows)
+```powershell
+New-Item -ItemType Directory -Force out | Out-Null; javac -d out (Get-ChildItem -Recurse -Filter *.java src | ForEach-Object { $_.FullName }); java -cp out dnaanalyzer.Main
+```
 
-- Show invalid input handling (`InvalidNucleotideException`).
-- Show DNA analysis (counts, GC%, complement, RNA transcription).
-- Show RNA analysis (counts, GC%, DNA back-transform).
-- Load sequence from file and analyze.
-- Show history list populated using collections.
+Launches GUI for sequence input/analysis.
+
+**Requirements**: JDK 25+ (detected on this system).
+
+## License
+MIT License - feel free to use/modify.
+
